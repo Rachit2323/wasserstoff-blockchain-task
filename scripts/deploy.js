@@ -23,48 +23,119 @@
 
 
 
-const { ethers } = require("hardhat");
-const hre = require("hardhat");
+// const { ethers } = require("hardhat");
+// const hre = require("hardhat");
+
+// async function main() {
+
+
+//   // Deploy the Transfer contract
+//   const Transfer = await hre.ethers.getContractFactory("Transfer");
+//   const transferContract = await Transfer.deploy();
+//   await transferContract.waitForDeployment();
+//   console.log("Transfer contract deployed to:", transferContract.target);
+
+
+//   const NFT = await hre.ethers.getContractFactory("Nft");
+//   const nftContract = await NFT.deploy();
+//   await nftContract.waitForDeployment();
+//   console.log("Nft contract deployed to:", nftContract.target);
+
+//   const Vote = await hre.ethers.getContractFactory("Vote");
+//   const voteContract = await Vote.deploy();
+//   await voteContract.waitForDeployment();
+//   console.log("Vote contract deployed to:", voteContract.target);
+
+//   // Deploy the Proxy contract, passing the address of the Transfer contract
+//   const Proxy = await hre.ethers.getContractFactory("Proxy");
+//   const proxyContract = await Proxy.deploy(transferContract.target, nftContract.target,voteContract.target);
+//   await proxyContract.waitForDeployment();
+//   console.log("Proxy contract deployed to:", proxyContract.target);
+
+//   // Optionally, you can call setImplementation function of the proxy contract to map function ID to Transfer contract address
+//   const transferFunctionId = await proxyContract.getTransferFunctionId();
+//   await proxyContract.setImplementation(transferFunctionId, transferContract.target);
+
+//   const voteFunctionId = await proxyContract.getTransferFunctionId();
+//   await proxyContract.setImplementation(voteFunctionId, voteContract.target);
+
+//   const nftFunctionId = await proxyContract.getTransferFunctionId();
+//   await proxyContract.setImplementation(nftFunctionId, nftContract.target);
+
+//   console.log("Proxy contract configured successfully!");
+
+// }
+
+// main()
+//   .then(() => process.exit(0))
+//   .catch((error) => {
+//     console.error(error);
+//     process.exit(1);
+//   });
+
+
+
+  // Transfer contract deployed to: 0x03641FdD1caD602a73Dac8BC0f76082b199C6153
+  // Nft contract deployed to: 0x55Eeb0A6D3EB19765c79325fEA40358c79A78aE5
+  // Vote contract deployed to: 0x825Fa4F402F5A15740A3e6E363A1f5839517EB36
+  // Proxy contract deployed to: 0x76477aD2E12ACCAD3AD69D5b9Fedf0E845369a2E
+  // Proxy contract configured successfully!
+
+
+
+
+
+
+
+
+  // scripts/deployProxy.js
+
+const { ethers, upgrades } = require("hardhat");
 
 async function main() {
+    // Deploy the implementation contracts first
+    const Transfer = await ethers.getContractFactory("Transfer");
+    const Nft = await ethers.getContractFactory("Nft");
+    const Vote = await ethers.getContractFactory("Vote");
 
+    const transfer = await Transfer.deploy();
+    await transfer.waitForDeployment();
 
-  // Deploy the Transfer contract
-  const Transfer = await hre.ethers.getContractFactory("Transfer");
-  const transferContract = await Transfer.deploy();
-  await transferContract.waitForDeployment();
-  console.log("Transfer contract deployed to:", transferContract.target);
+    const nft = await Nft.deploy();
+    await nft.waitForDeployment();
 
+    const vote = await Vote.deploy();
+    await vote.waitForDeployment();
 
-  const NFT = await hre.ethers.getContractFactory("Nft");
-  const nftContract = await NFT.deploy();
-  await nftContract.waitForDeployment();
-  console.log("Nft contract deployed to:", nftContract.target);
+    console.log("Implementation contracts deployed:");
 
-  // Deploy the Proxy contract, passing the address of the Transfer contract
-  const Proxy = await hre.ethers.getContractFactory("Proxy");
-  const proxyContract = await Proxy.deploy(transferContract.target, nftContract.target);
-  await proxyContract.waitForDeployment();
-  console.log("Proxy contract deployed to:", proxyContract.target);
+    console.log("Transfer:", transfer.target);
+    console.log("Nft:", nft.target);
+    console.log("Vote:", vote.target);
 
-  // Optionally, you can call setImplementation function of the proxy contract to map function ID to Transfer contract address
-  const transferFunctionId = await proxyContract.getTransferFunctionId();
-  await proxyContract.setImplementation(transferFunctionId, transferContract.target);
+    // Deploy the proxy contract
+    const Proxy = await ethers.getContractFactory("Proxy");
+    const proxy = await upgrades.deployProxy(
+        Proxy,
+        [transfer.target, nft.target, vote.target],
+        {
+          initializer: "starting",
+       }
+    );
 
-  console.log("Proxy contract configured successfully!");
-
+    console.log("Proxy contract deployed:", proxy.target);
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
+main().then(() => process.exit(0)).catch(error => {
     console.error(error);
     process.exit(1);
-  });
+});
 
 
 
 
-// Transfer contract deployed to: 0x7cB5aEf78A339Bd7e5e5e1867d1193E1B13B8947
-// Proxy contract deployed to: 0x692f5bEFa2Ba509Dedd15D2E268C2299F1dBA3Eb
-// Proxy contract configured successfully!
+// Implementation contracts deployed:
+// Transfer: 0x7f61426B07bd1b4d5c39Cd5B5803a54721f95bC1
+// Nft: 0xA942Ef0Cb0e7F7FFed5E88116115448F0498764b
+// Vote: 0xcC3eb6c67dEbB4D8F587c6f9F206c873Ad3054E8
+// Proxy contract deployed: 0xd96a61Dc59E79510cC06BdE91887607be9f24990

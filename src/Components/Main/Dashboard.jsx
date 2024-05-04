@@ -9,19 +9,28 @@ const Dashboard = () => {
   };
   
   const handleTransferMarket=()=>{
-    
+    //  navigate("/marketPlace")
+  }
+
+
+  const handleVote=()=>{
+navigate("/vote")
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg mb-4"   onClick={handleTransferMarket}>
+    <div className="flex flex-col justify-center items-center h-screen gap-10">
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg "   onClick={handleTransferMarket}>
         NFT Marketplace
       </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg"
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg " 
         onClick={handleTransfer}
       >
         Token Transfer
+      </button>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg " 
+        onClick={handleVote}
+      >
+        Voting 
       </button>
     </div>
   );
