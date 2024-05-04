@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ethers } from "ethers";
 import Proxy from "../../abi/Proxy.json";
 import toast, { Toaster } from "react-hot-toast";
@@ -8,11 +8,40 @@ const Vote = () => {
   
   // State variables for candidate inputs
   const [name, setName] = useState('');
-  const [id, setId] = useState('');
+  const [id, setId] = useState(0);
   const [party, setParty] = useState('');
+
+ 
+  useEffect(()=>{
+    const fetch=async()=>{
+ 
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      
+      // Get signer
+      const signer = provider.getSigner();
+      
+      // Proxy contract address
+      const proxyAddress = "0xAD84f50c6E1B1CB0045035122e00b5876409B685";
+
+      // Create contract instance
+      const proxy = new ethers.Contract(proxyAddress, Proxy.abi, signer);
+      
+      const check=await proxy.getListCandidates();
+      console.log('chec',check);
+   
+    }
+
+    fetch();
+ 
+  },[])
+
 
   // Function to handle adding a new candidate
   const addCandidate = async() => {
+
+  
+
+
 
     try {
       // Check if MetaMask is installed
@@ -28,7 +57,7 @@ const Vote = () => {
         const signer = provider.getSigner();
         
         // Proxy contract address
-        const proxyAddress = "0x76477aD2E12ACCAD3AD69D5b9Fedf0E845369a2E";
+        const proxyAddress = "0xAD84f50c6E1B1CB0045035122e00b5876409B685";
 
         // Create contract instance
         const proxy = new ethers.Contract(proxyAddress, Proxy.abi, signer);
@@ -38,6 +67,8 @@ const Vote = () => {
           value: ethers.utils.parseEther("0.001"), 
         });
 
+
+  
         // Wait for the transaction to be confirmed
         await tx.wait();
         

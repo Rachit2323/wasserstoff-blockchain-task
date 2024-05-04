@@ -22,7 +22,7 @@ const Token = () => {
         const signer = provider.getSigner();
         
         // Proxy contract address
-        const proxyAddress = "0xd96a61Dc59E79510cC06BdE91887607be9f24990";
+        const proxyAddress = "0xAD84f50c6E1B1CB0045035122e00b5876409B685";
 
         // Create contract instance
         const proxy = new ethers.Contract(proxyAddress, Proxy.abi, signer);

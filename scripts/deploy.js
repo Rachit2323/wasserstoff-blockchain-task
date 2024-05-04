@@ -132,10 +132,8 @@ main().then(() => process.exit(0)).catch(error => {
 });
 
 
-
-
 // Implementation contracts deployed:
-// Transfer: 0x7f61426B07bd1b4d5c39Cd5B5803a54721f95bC1
-// Nft: 0xA942Ef0Cb0e7F7FFed5E88116115448F0498764b
-// Vote: 0xcC3eb6c67dEbB4D8F587c6f9F206c873Ad3054E8
-// Proxy contract deployed: 0xd96a61Dc59E79510cC06BdE91887607be9f24990
+// Transfer: 0x2cc12a06CcfcA91d62dafa8572f9557C0Fd778AF
+// Nft: 0xe7559AB433CBe38ae6B105D978B9FAA23A1D178D
+// Vote: 0xa480f19EBa9169b6644dbC5Cd22944bE58A6cFF1
+// Proxy contract deployed: 0xAD84f50c6E1B1CB0045035122e00b5876409B685
