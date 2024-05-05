@@ -40,6 +40,11 @@
       "address": "0xAD84f50c6E1B1CB0045035122e00b5876409B685",
       "txHash": "0x8be83c5a4e7d3e837f4d0e42bc5cc159353bce51047beaf499803bbcba661d38",
       "kind": "transparent"
+    },
+    {
+      "address": "0x23E053e31EA6c2dd3CCAE1c3B5a009146fCFA50C",
+      "txHash": "0xd132f8b84fcbf193375fbf6bdd1b627afa89ec9cc6ecdf86865bbf52a09fe06f",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -328,6 +333,62 @@
             "numberOfBytes": "20"
           },
           "t_contract(Vote)4204": {
+            "label": "contract Vote",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_bytes4,t_address)": {
+            "label": "mapping(bytes4 => address)",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "5bd74a3cf7b91569654454d4c82f5565efe6ffa409e2273ff38c923b0ab732dc": {
+      "address": "0x929d4EE874ff675232707032b6f2d35629694541",
+      "txHash": "0xc460ff0878f824de8cf10d8bdf8173a00d6339436e721e5c6c07607006e02a95",
+      "layout": {
+        "solcVersion": "0.8.4",
+        "storage": [
+          {
+            "label": "implementations",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_mapping(t_bytes4,t_address)",
+            "contract": "Proxy",
+            "src": "contracts/Proxy.sol:9"
+          },
+          {
+            "label": "transferContract",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_contract(Transfer)336",
+            "contract": "Proxy",
+            "src": "contracts/Proxy.sol:11"
+          },
+          {
+            "label": "voteContract",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_contract(Vote)685",
+            "contract": "Proxy",
+            "src": "contracts/Proxy.sol:13"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bytes4": {
+            "label": "bytes4",
+            "numberOfBytes": "4"
+          },
+          "t_contract(Transfer)336": {
+            "label": "contract Transfer",
+            "numberOfBytes": "20"
+          },
+          "t_contract(Vote)685": {
             "label": "contract Vote",
             "numberOfBytes": "20"
           },

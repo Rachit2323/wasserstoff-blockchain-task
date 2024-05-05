@@ -31,10 +31,10 @@ const Main = () => {
 
   const connectContract = async () => {
 
-    const provider = new ethers.BrowserProvider(window.ethereum)
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
 
     const signer = provider.getSigner();
-    const proxyAddress = "0x76477aD2E12ACCAD3AD69D5b9Fedf0E845369a2E";
+    const proxyAddress = "0x23E053e31EA6c2dd3CCAE1c3B5a009146fCFA50C";
 
     const proxy = new ethers.Contract(proxyAddress, Proxy.abi, signer);
 

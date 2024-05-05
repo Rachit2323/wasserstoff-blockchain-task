@@ -1,5 +1,0 @@
-const V1=await V1contract.attach('0xaA54b3aE6669E764A705215001CFda290560Ed0F');
-const V1contract = await ethers.getContractFactory("V1");
-clear
-const V1contract = await ethers.getContractFactory("V1");
-const cc=await ethers.getContractFactory("V1")
