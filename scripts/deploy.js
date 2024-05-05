@@ -42,3 +42,8 @@ main().then(() => process.exit(0)).catch(error => {
     process.exit(1);
 });
 
+
+// Implementation contracts deployed:
+// Transfer: 0x27f80D9006732d7b4a5d1d179354f7E675a3d8d1
+// Vote: 0x31Ef95B957689Ab328B2072650074110f3b1b9D4
+// Proxy contract deployed: 0x23E053e31EA6c2dd3CCAE1c3B5a009146fCFA50C
