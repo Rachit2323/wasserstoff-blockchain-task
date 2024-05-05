@@ -154,7 +154,7 @@ const Vote = () => {
       }
     } catch (error) {
       // Error occurred, show error toast
-      toast.error("Error transferring amount");
+      toast.error("CandidateId and Party Name should be unique");
       console.error(error);
     }
 
@@ -187,7 +187,7 @@ const Vote = () => {
 
   return (
     <div className=" mx-auto p-4 bg-gray-100 rounded-lg h-screen w-screen shadow-md bg-gray-400">
-      <h2 className="text-xl font-bold mb-4">Vote</h2>
+      <h2 className="text-xl font-bold mb-4">Vote(CandidateId and Party Name should be unique)</h2>
       <div className="mb-4">
         {/* Input fields for adding a new candidate */}
         <input
@@ -230,7 +230,7 @@ const Vote = () => {
 
       {/* Display the list of candidates */}
       <div>
-        <h3 className="text-lg font-semibold mb-2">Candidates:</h3>
+        <h3 className="text-lg font-semibold mb-2">Candidates:(User Can vote only Once)</h3>
         <div className="w-full ">
           <table className="w-full">
             <thead className="w-full">
