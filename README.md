@@ -1,8 +1,4 @@
-# Project Name
 
-## Description
-
-Briefly describe your project here.
 
 ## Installation
 
