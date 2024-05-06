@@ -1,8 +1,30 @@
-# React + Vite
+# Project Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Briefly describe your project here.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+To install the required Node.js modules, use the following command:`npm i` or `npm i --force`
+
+
+## Testing
+
+To run unit tests, use: `npx hardhat test`
+
+
+## Deployment
+
+To deploy the script (on Sepolia), use:, use: `npx hardhat --network sepolia  run scripts/deploy.js `
+
+
+## Frontend
+
+To start the frontend, use: `npm run dev`
+
+
+### Note
+
+If you encounter errors in the frontend, make sure to use Ether version of `"ethers": "^5.6.8"`, specifically less than `6.0.0`.
+
