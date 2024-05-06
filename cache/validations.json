@@ -5,6 +5,242 @@
       "contracts/Proxy.sol:Proxy": {
         "src": "contracts/Proxy.sol:8",
         "version": {
+          "withMetadata": "e530c39cd23c75c9bc2170ff019232d93847aee83ed3f213f6f0bec8600aacef",
+          "withoutMetadata": "5bd74a3cf7b91569654454d4c82f5565efe6ffa409e2273ff38c923b0ab732dc",
+          "linkedWithoutMetadata": "5bd74a3cf7b91569654454d4c82f5565efe6ffa409e2273ff38c923b0ab732dc"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "starting(address,address)",
+          "callTransfer(address payable)",
+          "addCandidates(string,uint256,string)",
+          "vote(uint256,address)",
+          "getListCandidates()",
+          "getWinner()",
+          "getVote(address)",
+          "updateProxy(string,address)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "label": "implementations",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_mapping(t_bytes4,t_address)",
+              "contract": "Proxy",
+              "src": "contracts/Proxy.sol:9"
+            },
+            {
+              "label": "transferContract",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_contract(Transfer)320",
+              "contract": "Proxy",
+              "src": "contracts/Proxy.sol:11"
+            },
+            {
+              "label": "voteContract",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_contract(Vote)668",
+              "contract": "Proxy",
+              "src": "contracts/Proxy.sol:13"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_bytes4": {
+              "label": "bytes4",
+              "numberOfBytes": "4"
+            },
+            "t_contract(Transfer)320": {
+              "label": "contract Transfer",
+              "numberOfBytes": "20"
+            },
+            "t_contract(Vote)668": {
+              "label": "contract Vote",
+              "numberOfBytes": "20"
+            },
+            "t_mapping(t_bytes4,t_address)": {
+              "label": "mapping(bytes4 => address)",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.4"
+      },
+      "contracts/Transfer.sol:Transfer": {
+        "src": "contracts/Transfer.sol:4",
+        "version": {
+          "withMetadata": "8946ad9890fdad342114832e261c8596b104519dcaf1f2ab2552e24400769173",
+          "withoutMetadata": "4f49a48dce011a44bfca7e2fa444fb6bdd25d4c1d51c7b8df163855d2b935612",
+          "linkedWithoutMetadata": "4f49a48dce011a44bfca7e2fa444fb6bdd25d4c1d51c7b8df163855d2b935612"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "_transfer(address payable)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.4"
+      },
+      "contracts/Vote.sol:Vote": {
+        "src": "contracts/Vote.sol:5",
+        "version": {
+          "withMetadata": "32ac8f3c269001356dc94d7c5a53c2f023667f9840f9831ab3094baaccc52340",
+          "withoutMetadata": "e4ccdbf3a75da1f18e3e7cdbebc0270e202c55dfb759e3d9ea0acc9748dca184",
+          "linkedWithoutMetadata": "e4ccdbf3a75da1f18e3e7cdbebc0270e202c55dfb759e3d9ea0acc9748dca184"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "()",
+          "addCandidate(string,uint256,string)",
+          "vote(uint256,address)",
+          "getWinner()",
+          "getVote(address)",
+          "getListCandidates()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Vote",
+            "src": "contracts/Vote.sol:24"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "candidates",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_array(t_struct(Candidate)332_storage)dyn_storage",
+              "contract": "Vote",
+              "src": "contracts/Vote.sol:15"
+            },
+            {
+              "label": "hasVoted",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_mapping(t_address,t_bool)",
+              "contract": "Vote",
+              "src": "contracts/Vote.sol:18"
+            },
+            {
+              "label": "owner",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_address",
+              "contract": "Vote",
+              "src": "contracts/Vote.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_struct(Candidate)332_storage)dyn_storage": {
+              "label": "struct Vote.Candidate[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_mapping(t_address,t_bool)": {
+              "label": "mapping(address => bool)",
+              "numberOfBytes": "32"
+            },
+            "t_string_storage": {
+              "label": "string",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Candidate)332_storage": {
+              "label": "struct Vote.Candidate",
+              "members": [
+                {
+                  "label": "name",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "candidateId",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "1"
+                },
+                {
+                  "label": "party",
+                  "type": "t_string_storage",
+                  "offset": 0,
+                  "slot": "2"
+                },
+                {
+                  "label": "voteCount",
+                  "type": "t_uint256",
+                  "offset": 0,
+                  "slot": "3"
+                }
+              ],
+              "numberOfBytes": "128"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.4"
+      },
+      "hardhat/console.sol:console": {
+        "src": "hardhat/console.sol:4",
+        "version": {
+          "withMetadata": "cc95f93808bcb95f4443759e771ca2f6053fb029db8ec94713f9a2748d293649",
+          "withoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db",
+          "linkedWithoutMetadata": "a64c6cf9c6ba9368f5132c93a0196b3204a7963dbb4dd05dfddb4ab23126b8db"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false,
+          "namespaces": {}
+        },
+        "solcVersion": "0.8.4"
+      }
+    },
+    {
+      "contracts/Proxy.sol:Proxy": {
+        "src": "contracts/Proxy.sol:8",
+        "version": {
           "withMetadata": "bc492b2d415a22fc638b48693734d96ffd61af0dd5d630ee6721b681a3597cc7",
           "withoutMetadata": "5bd74a3cf7b91569654454d4c82f5565efe6ffa409e2273ff38c923b0ab732dc",
           "linkedWithoutMetadata": "5bd74a3cf7b91569654454d4c82f5565efe6ffa409e2273ff38c923b0ab732dc"

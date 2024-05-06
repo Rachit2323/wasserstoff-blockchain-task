@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/atrey/Desktop/Blockchain/my-project/contracts/Proxy.sol": {
-      "lastModificationDate": 1714902307782,
-      "contentHash": "ecf4362cea6c7a0711341440c66fca1c",
+      "lastModificationDate": 1714931619303,
+      "contentHash": "67fbf16db8ae246a004163949179339f",
       "sourceName": "contracts/Proxy.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -42,8 +42,8 @@
       ]
     },
     "/Users/atrey/Desktop/Blockchain/my-project/contracts/Transfer.sol": {
-      "lastModificationDate": 1714676291506,
-      "contentHash": "c077df26670b1f94d5ca396cadfd43ba",
+      "lastModificationDate": 1714907830401,
+      "contentHash": "953c54ffa73efd56ad1ebedd83cfc518",
       "sourceName": "contracts/Transfer.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -150,38 +150,6 @@
       "artifacts": [
         "console"
       ]
-    },
-    "/Users/atrey/Desktop/Blockchain/my-project/contracts/Transfer2.sol": {
-      "lastModificationDate": 1714903531530,
-      "contentHash": "09af0ee06ebe65ac1193b8e91222df2a",
-      "sourceName": "contracts/Transfer2.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [],
-      "artifacts": []
     }
   }
 }
