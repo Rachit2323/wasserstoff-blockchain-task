@@ -21,6 +21,6 @@ To start the frontend, use: `npm run dev`
 
 
 ### Note
-
+In hardhat.config.js please add you wallet(metamask) private key , if running locally else live version is running fine.
 If you encounter errors in the frontend, make sure to use Ether version of `"ethers": "^5.6.8"`, specifically less than `6.0.0`.
 
