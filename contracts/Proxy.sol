@@ -38,12 +38,15 @@ contract Proxy {
         implementations[GET_VOTE]=_voteAddress;
     }
 
-    // Function to call the _transfer function of the Transfer contract
-    function callTransfer(address payable _to) external payable {
-        // Delegate the call to the implementation contract
-          _delegate(TRANSFER_SELECTOR, abi.encode(_to));
-    }
 
+  // Function to call the _transfer function of the Transfer contract
+function callTransfer(address payable _to) external payable {
+    // Ensure that the sent value is forwarded to the _transfer function
+    require(msg.value > 0, "Value must be greater than 0");
+    
+    // Delegate the call to the implementation contract, passing msg.value
+    _delegate(TRANSFER_SELECTOR, abi.encode(_to), msg.value);
+}
  
     // Function to add candidates
     function addCandidates(string memory name, uint256 candidateId, string memory party) external payable {
