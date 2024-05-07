@@ -51,13 +51,13 @@ function callTransfer(address payable _to) external payable {
     // Function to add candidates
     function addCandidates(string memory name, uint256 candidateId, string memory party) external payable {
         // Delegate the call to the implementation contract
-        _delegate(ADD_CANDIDATES_SELECTOR, abi.encode(name, candidateId, party));
+               _delegateWithValue(ADD_CANDIDATES_SELECTOR, abi.encode(name, candidateId, party), msg.value);
     }
 
     // Function to vote for a candidate
     function vote(uint256 candidateId, address voter) external payable {
         // Delegate the call to the implementation contract
-        _delegate(VOTE_SELECTOR, abi.encode(candidateId, voter));
+      _delegateWithValue(VOTE_SELECTOR, abi.encode(candidateId, voter), msg.value);
     }
 
     // Function to get list of candidates
