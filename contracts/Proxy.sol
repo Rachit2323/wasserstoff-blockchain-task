@@ -74,12 +74,12 @@ function  getVote(address voter) external view returns(bool hasVote) {
     
 }
     // Internal function to delegate the call to the implementation contract
-  function _delegate(bytes4 _selector, bytes memory _params) internal {
+function _delegate(bytes4 _selector, bytes memory _params, uint256 _value) internal {
     address _impl = implementations[_selector];
     require(_impl != address(0), "Implementation not found");
-    
-    // Forward the call to the implementation contract using call
-    (bool success, ) = _impl.call(abi.encodePacked(_selector, _params));
+
+    // Forward the call to the implementation contract using call, passing msg.value
+    (bool success, ) = _impl.call{value: _value}(abi.encodePacked(_selector, _params));
     require(success, "Call failed");
 }
 
