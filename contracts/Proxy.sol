@@ -83,6 +83,14 @@ function  getVote(address voter) external view returns(bool hasVote) {
     require(success, "Call failed");
 }
 
+  // Function to update the implementation address for a function selector
+    function updateProxy(
+        string memory _selector,
+        address _newImplementation
+    ) external {
+        bytes4 selector = bytes4(keccak256(abi.encodePacked(bytes(_selector))));
+        implementations[selector] = _newImplementation;
+    }
 
     
 }
